@@ -26,6 +26,9 @@
 .bg-white{
     background-color: #fff !important;
 }
+.clearfix1{
+    padding:10px;
+}
 p{
     font-size:15px !important;
     color:#8A8A8A !important;

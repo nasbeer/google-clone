@@ -21,11 +21,15 @@ import logo from './jubna.png';
 import tick from '../../Icon/tick.png';
 import './SearchResult.css';
 
+import Pagination from 'react-mui-pagination';
+import Fab from '@material-ui/core/Fab';
 function SearchResult() {
-
+    const [page, setMyPage] = React.useState(1);
     const [{ term }, dispatch] = useStateValue();
     const { data } = useGoogleSearch(term); // LIVE API Call
-
+    const setPage = (e, p) => {
+        setMyPage(p);
+      }
     return (
         <div className="searchResult">
             <div className="searchResult__header">
@@ -94,6 +98,14 @@ function SearchResult() {
 
                         </div>
                     ))}
+                    <div className="clearfix1"></div>
+                     <Pagination
+  LinksComponent='a'
+  numOfLinks={10}
+  hidePrevNext hideFirstLast
+  linksProps={{ href: 'search/' + page }}
+  activeProps={{ style: { fontWeight: 'bold' } }}
+  page={page} setPage={setPage} total={424} />
                 </div>
             )}
         </div>
