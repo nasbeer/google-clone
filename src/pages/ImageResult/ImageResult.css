@@ -1,0 +1,215 @@
+.imageResult{
+    background-color: #f5f5f5 !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin:auto;
+    height:100%;
+    
+}
+.clearfix{
+    padding:20px;
+}
+.pointer-arrow{
+    cursor: pointer !important;
+}
+.cont{
+    position: relative;
+}
+.cont1{
+    position: relative;
+    display: flex;
+}
+.bottom-left-img {
+    position: absolute;
+    bottom: 11px;
+    display: none;
+    left: 13px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 8px;
+    font-size:12px !important;
+    font-family: 'Arial', serif !important;
+    color:#fff;
+  }
+.bottom-right-img {
+    position: absolute;
+    bottom: 11px;
+    right: 0px;
+    padding:1px 7px 1px 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom-right-radius: 8px;
+    font-size:12px !important;
+    font-family: 'Arial', serif !important;
+    color:#fff;
+  }
+.imageResult__header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+    font-family: 'Noto Naskh Arabic', serif !important;
+    z-index: 100;
+    align-items: flex-start;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.bg-trans{
+    background-color: none !important;
+}
+/* .card{
+    background-color: #f5f5f5 !important;
+    border:none !important;
+} */
+.img-ico{
+    /* width: 271px;
+    aspect-ratio: auto 271 / 180;*/
+    width:200px;
+    height: 127px; 
+    border-radius:8px;
+    object-fit:cover;
+}
+.text-fix{
+    height: 14px !important;
+    overflow-y: hidden !important;
+    display: inline-block;
+    line-height: 1;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+.f-12{
+    font-size:12px;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+.font-weight-600{
+    font-weight: 600;
+}
+.position-nz{
+    box-sizing: border-box;
+    display: inline-flex;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    margin-top: 8px;
+    position: relative;
+    vertical-align: top;
+    white-space: normal;
+    padding-bottom:100px;
+    /* width: auto;*/
+}
+.card-wi{
+    width:100%;
+}
+/* .search__input{
+    margin-right: 14px;
+} */
+.text-warning{
+    color:#f09320 !important;
+    font-weight: 500;
+}
+p{
+    font-size:15px !important;
+    color:#8A8A8A !important;
+    font-weight:400 !important;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+.f-13{
+    font-size:13px !important;
+}
+.txt-clr{
+    color: #1A1D1F !important;
+}
+.imageResult__logo {
+    object-fit: contain;
+    height: 50px;
+    font-family: 'Noto Naskh Arabic', serif !important;
+    margin-right: 50px;
+    padding-left:50px;
+}
+
+.imageResult__headerBody > .search > .search__input {
+    margin-top: 0;
+    margin: unset;
+    font-family: 'Noto Naskh Arabic', serif !important;
+    outline: none !important;
+}
+
+.imageResult__options,
+.imageResult__optionsRight,
+.imageResult__optionsLeft {
+    display: flex;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+
+
+.imageResult__optionsRight {
+    margin-left: 80px;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+
+.imageResult__items {
+    max-width: 100%;
+     
+    margin-right:178px; 
+    margin-top: 20px;
+   
+    margin-left:10px;
+    /* margin-bottom: 100px; */
+    background-color: transparent;
+    font-family: 'Noto Naskh Arabic', serif !important;
+    font-weight:400;
+}
+
+.imageResult__itemsCount {
+    color: #70757a;
+    font-size: 14px;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+
+.imageResult__item {
+    margin: 40px 0;
+    display: inline-flex;
+    font-size:18px;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+
+.imageResult__itemLink {
+    display: flex;
+    align-items: center;
+    color: #1C1BA8;
+    text-decoration: none;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+
+.imageResult__itemImage {
+    object-fit: contain;
+    height: 25px;
+  
+    width: 25px;
+    margin-right: 10px;
+}
+
+.imageResult__itemTitle {
+    text-decoration: none;
+    font-family: 'Noto Naskh Arabic', serif !important;
+    line-height: 1px;
+}
+
+.imageResult__itemTitle:hover {
+    text-decoration: none;
+    color:#f09320 !important;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+
+.imageResult__itemTitle > h2 {
+    font-weight: 500;
+    text-decoration: none !important;
+    font-family: 'Noto Naskh Arabic', serif !important;
+    font-size:20px;
+    color:#1C1BA8;
+  
+}
+.imageResult__itemTitle > h2:hover{
+    color:#f09320 !important;
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
