@@ -60,3 +60,39 @@
     display: none !important;
     
 }
+@media  screen and (max-width:450px) {
+    
+.search__buttons {
+    margin-top: 20px;
+    display: flex;
+    font-family: 'Noto Naskh Arabic', serif;
+    justify-content: center;
+    overflow-x: scroll;
+    width:100%;
+}
+
+.search__buttons button {
+    margin: 5px;
+    padding: 5px;
+
+    background-color: #f8f8f8;
+    border: 1px solid #FFF;
+    text-transform: inherit;
+    font-family: 'Noto Naskh Arabic', serif;
+    color: #5f6368;
+}
+
+.search__buttons button:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+    background-color: #f8f8f8;
+    border: 1px solid #c6c6c6;
+    font-family: 'Noto Naskh Arabic', serif;
+    color: #222;
+}
+
+.search__buttonHidden {
+    display: none !important;
+    
+}
+}

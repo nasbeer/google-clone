@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    font-family: 'Noto Naskh Arabic', serif;
+    font-family: 'Noto Naskh Arabic','Arial', serif !important;
 }
 
 .home__header {
@@ -10,7 +10,7 @@
     justify-content: space-between;
     padding: 20px 30px;
     align-items: center;
-    font-family: 'Noto Naskh Arabic', serif;
+    font-family: 'Noto Naskh Arabic', 'Arial', serif !important;
 }
 
 /* .shadow-sm:hover{
@@ -21,7 +21,7 @@
     text-decoration: inherit;
     color: rgba(0, 0, 0, .87);
     font-size: 15px;
-    font-family: 'Noto Naskh Arabic', serif;
+    font-family: 'Noto Naskh Arabic','Arial', serif !important;
 }
 
 .home__header a:hover{
@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     min-width: 13vw;
-    font-family: 'Noto Naskh Arabic', serif;
+    font-family: 'Noto Naskh Arabic','Arial', serif !important;
     justify-content: space-between;
 }
 
@@ -43,7 +43,7 @@
 
 .home__body {
     flex: 1;
-    font-family: 'Noto Naskh Arabic', serif;
+    font-family: 'Noto Naskh Arabic', 'Arial',serif !important;
     display: flex;
     margin-top: 10%;
     flex-direction: column;
@@ -55,6 +55,18 @@
     height: 95px;
 }
 
+.trendspace_head{
+  max-width: 100%;
+  background-color: #F9F9F9 !important;
+}
+.trendspace {
+  display: block;
+  align-items: center;
+  margin-top:0px;
+
+  max-width: 750px;
+  margin:auto;
+}
 
 .card {
     position: relative;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Search from '../../components/Search/Search';
+import TrendButton from '../../components/Button/Button';
 import one from '../../Icon/one.png';
 import two from '../../Icon/two.png';
 import three from '../../Icon/three.png';
@@ -10,20 +11,20 @@ import { Avatar } from '@material-ui/core';
 import logo from './jubna_orange_logo.svg';
 import './Home.css';
 
+import weather from '../../Icon/ToolbarOption.png';
+
 function Home() {
     return (
         <div className="home">
 
-            <div className="home__header d-none">
+            <div className="home__header ">
                 <div className="home__headerLeft">
-                    <Link to="/about">About</Link>
-                    <Link to="/store">Store</Link>
+                    <Link to="/about" className="no-underline">About</Link>
+                    
                 </div>
-                <div className="home__headerRight">
-                    <Link to="/gmail">Gmail</Link>
-                    <Link to="/images">Images</Link>
-                    <AppsIcon />
-                    <Avatar />
+                <div className="home__headerRight ">
+                    <img src={weather}/>
+                   
                 </div>
             </div>
 
@@ -37,6 +38,9 @@ function Home() {
             </div>
             
             <div className="trendspace_head ">
+                <div className="text-center pt-4">
+            <TrendButton />
+            </div>
             <div className="trendspace ">
                 <div className="card  card-hgt mt-4 mb-2 rounded-3 overflow-hidden flex-md-row shadow-sm h-md-250">
                     <div className="card-body d-flex flex-column align-items-start">

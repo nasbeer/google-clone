@@ -1,0 +1,21 @@
+.buttonTrans{
+    background-color: transparent !important;
+}
+.buttonTrans:hover, .buttonTrans:active{
+    background-color: transparent !important;
+}
+
+.buttonTrends_head{
+    width: inherit;
+    background-color: #fff !important;
+    padding-top: 10px;
+    border:1px solid rgba(0, 0, 0, 0.125);
+    padding-bottom: 10px;
+    padding-right: 90px;
+    padding-left: 90px;
+
+    border-radius: 8px;
+  }
+  .border-20{
+      border-radius: 20px;
+  }
