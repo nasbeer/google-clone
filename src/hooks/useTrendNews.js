@@ -1,4 +1,5 @@
 
+import { MarkAsUnreadSharp } from '@mui/icons-material';
 import { responsiveProperty } from '@mui/material/styles/cssUtils';
 import { useState, useEffect } from 'react';
 // import { auth } from '../../keys';
@@ -13,7 +14,7 @@ const useTrendNews = () => {
     useEffect(() => {
         const fetchData = async () => {
             fetch(
-                `https://abhi1-api.jubna.me/api/getNewsFeed?start_date=2021-10-25&end_date=2021-12-19`,{
+                `https://abhi1-api.jubna.me/api/getNewsFeed?start_date=2021-10-25&end_date=2021-12-19&country=ae`,{
                     headers:{
                       "Access-Control-Allow-Origin": "*",
                       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
@@ -38,3 +39,5 @@ const useTrendNews = () => {
 }
 
 export default useTrendNews; 
+
+

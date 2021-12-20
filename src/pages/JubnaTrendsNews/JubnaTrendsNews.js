@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import moment from "moment";
 import useTrendsNews from '../../hooks/useTrendNews';
 import { useStateValue } from '../../StateContext';
-// import logo from './jubna.png';
+ import logo from './jubna_orange_logo.svg';
 
 //import './SearchResult.css';
 
@@ -30,7 +30,7 @@ function JubnaTrendsNews() {
                     <div className="card  card-hgt mt-4 mb-2 rounded-3 overflow-hidden flex-md-row shadow-sm h-md-250" key={item.id}>
                         <div className="card-body d-flex flex-column align-items-start">
                         
-                        <h3 className="mb-2">
+                        <h3 className="mb-0">
                             <a className="text-dark no-underline" href="#">{item.title}</a>
                         </h3>
                         <div className="mb-1 text-muted ">{item.domain}</div>

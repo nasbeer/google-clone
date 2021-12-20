@@ -1,4 +1,4 @@
-export const API_KEY = '    AIzaSyCnbMNP3HqhZ731iYvTf-4_mJ8pAhU4QsE    '; // https://developers.google.com/custom-search/v1/using_rest
+export const API_KEY = '  AIzaSyDybiT32IxD4WpHYl342aytdUEcYwDiOJE  '; // https://developers.google.com/custom-search/v1/using_rest
 
 export const CONTEXT_KEY = 'a2a1ea38a321b40db'; // https://console.developers.google.com
 export const auth = '7a2348b66ae00f41c7b8c46745b63a6162bb78b7bc332caa689eaba7bcc921cf'; // https://abhi-api.jubna.me/api/getNewsFeed?start_date=2021-08-23&end_date=2021-10-24%27,

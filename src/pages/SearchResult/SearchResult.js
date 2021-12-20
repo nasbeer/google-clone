@@ -10,6 +10,12 @@ import ArticleIcon from '@mui/icons-material/ArticleOutlined';
 //import TrustIcon from '@material-ui/icons/Check';
 import VideoIcon from '@material-ui/icons/PlayCircleOutlineRounded';
 import MoreVertIcon from '@material-ui/icons/MoreVertOutlined';
+import Stack from '@mui/material/Stack';
+import Pagination from "@mui/material/Pagination";
+
+import PaginationItem from "@mui/material/PaginationItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 // import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 // import moment from "moment";
 import useGoogleSearch from '../../hooks/useGoogleSearch/useGoogleSearch';
@@ -20,18 +26,75 @@ import SearchOption from '../../components/SearchOption/SearchOption';
 import logo from './jubna.png';
 import tick from '../../Icon/tick.png';
 import './SearchResult.css';
-
-import Pagination from 'react-mui-pagination';
+import { useState, useEffect } from 'react';
+import { API_KEY, CONTEXT_KEY } from '../../keys';
+// import Pagination from 'react-mui-pagination';
 import Fab from '@material-ui/core/Fab';
 function SearchResult() {
-    const [page, setMyPage] = React.useState(1);
+	 const [page, setPage] = React.useState(1);
     const [{ term }, dispatch] = useStateValue();
-    const { data } = useGoogleSearch(term); // LIVE API Call
-    const setPage = (e, p) => {
-        setMyPage(p);
-      }
+	const [totallink, setTotallink] = useState([]);
+    // const { data } = useGoogleSearch(term); // LIVE API Call
+	
+	const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+			console.log(term);
+			let nextpage = 1;
+			if (window.sessionStorage.getItem("search") != "") {
+            fetch(
+                // `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${term}&lr=ar`
+                `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${window.sessionStorage.getItem("search")}&lr=ar&start=${nextpage}`
+            )
+                .then(response => response.json())
+                .then(result => {
+						setData([]);
+						setPage(1);
+					if(result['error']!=undefined){
+					}else{
+						if(result['items']!=undefined){
+							if(result.items.length>0){
+								setTotallink(Math.ceil(result.queries.request[0]["totalResults"] / result.queries.request[0]["count"]));
+								setData(result);
+							}
+						}
+					}
+						
+                })
+			}
+        }
+
+        fetchData();
+    }, [term])
+	
+	const handleChange = (event, value) => {
+        setPage(value);
+        let nextpage = value > 1 ? (value - 1) * 10 + 1 : 1;
+        if (window.sessionStorage.getItem("search") != "") {
+            fetch(
+                // `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${term}&lr=ar`
+                `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${window.sessionStorage.getItem("search")}&lr=ar&start=${nextpage}`
+            )
+                .then(response => response.json())
+                .then(result => {
+						setData([]);
+					if(result['error']!=undefined){
+					}else{
+						if(result['items']!=undefined){
+							if(result.items.length>0){
+							setTotallink(Math.ceil(result.queries.request[0]["totalResults"] / result.queries.request[0]["count"]));
+								setData(result);
+							}
+						}
+					}
+                })
+        }
+    };
+	
     return (
         <div className="searchResult">
+		
             <div className="searchResult__header">
                 <Link to="/">
                     <img className="searchResult__logo" src={logo} alt="Logo" />
@@ -58,8 +121,11 @@ function SearchResult() {
                     </div>
                 </div>
             </div>
-
-            {term && (
+			
+			{(() => {
+              if(data['items']!=undefined){
+                  return (
+            
                 <div className="searchResult__items">
                     <p className="searchResult__itemsCount">
                     حوالي {data?.searchInformation.formattedTotalResults} نتيجة
@@ -99,15 +165,18 @@ function SearchResult() {
                         </div>
                     ))}
                     <div className="clearfix1"></div>
-                     <Pagination
-  LinksComponent='a'
-  numOfLinks={10}
-  hidePrevNext hideFirstLast
-  linksProps={{ href: 'search/' + page }}
-  activeProps={{ style: { fontWeight: 'bold' } }}
-  page={page} setPage={setPage} total={424} />
+                     <Stack spacing={2}>
+			<Pagination count={totallink} className="pagnate" page={page} onChange={handleChange} />
+		</Stack>
                 </div>
-            )}
+				
+            
+			)
+              }
+              
+              return (<p className="text-center title font-arial mt-4">{"API Daily Limit exceeded"}</p>);
+            })()}
+			
         </div>
     )
 }

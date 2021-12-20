@@ -35,7 +35,7 @@ function Search({ hideButtons = false }) {
         <form className="search">
             <div className="search__input">
                 <SearchIcon className="search__inputIcon" />
-                <input type="text" value={input} onChange={e => setInput(e.target.value)}  placeholder="ابحث عن اي شيء..."/>
+                <input type="text"  onChange={e => setInput(e.target.value)}  placeholder="ابحث عن اي شيء..."/>
                 {/* <MicIcon /> */}
             </div>
 

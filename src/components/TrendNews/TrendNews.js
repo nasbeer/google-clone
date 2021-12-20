@@ -25,10 +25,10 @@ function TrendNews() {
                         <div className="card  card-hgt mt-4 mb-2 rounded-3 overflow-hidden flex-md-row shadow-sm h-md-250" key={item.id}>
                             <div className="card-body d-flex flex-column align-items-start">
                             
-                            <h3 className="mb-2">
+                            <h3 className="mb-0">
                                 <a className="text-dark no-underline" target="_blank" href={item.link}>{item.title}</a>
                             </h3>
-                            <div className="mb-1 text-muted ">{item.domain}</div>
+                            <div className="mb-0 text-muted ">{item.domain}</div>
                             <p className="card-text mb-auto d-none d-md-block desc pt-2 pb-2">{item.title}</p>
                             
                             </div>

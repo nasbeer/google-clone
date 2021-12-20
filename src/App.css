@@ -59,9 +59,14 @@ input[type=submit] {
   pointer-events: none;
 }
 .logo-img {
-  width: auto;
+  max-width: 200px !important;
+  min-width: 200px !important;
+
+  background-image: url(./Icon/jubna_orange_logo.svg);
+  background-repeat: no-repeat;
   background-color: #f5f5f5;
   object-fit: cover;
+  border-right: 1px solid #f6f6f6;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
