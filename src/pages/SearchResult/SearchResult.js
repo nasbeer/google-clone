@@ -33,16 +33,16 @@ import Fab from '@material-ui/core/Fab';
 function SearchResult() {
 	 const [page, setPage] = React.useState(1);
     const [{ term }, dispatch] = useStateValue();
-	const [totallink, setTotallink] = useState([]);
+	const [totallink, setTotallink] = useState(5);
     // const { data } = useGoogleSearch(term); // LIVE API Call
 	
 	const [data, setData] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
 			console.log(term);
 			let nextpage = 1;
 			if (window.sessionStorage.getItem("search") != "") {
+				document.getElementById("myInput").value = window.sessionStorage.getItem("search");
             fetch(
                 // `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${term}&lr=ar`
                 `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${window.sessionStorage.getItem("search")}&lr=ar&start=${nextpage}`
@@ -55,7 +55,7 @@ function SearchResult() {
 					}else{
 						if(result['items']!=undefined){
 							if(result.items.length>0){
-								setTotallink(Math.ceil(result.queries.request[0]["totalResults"] / result.queries.request[0]["count"]));
+								// setTotallink(Math.ceil(result.queries.request[0]["totalResults"] / result.queries.request[0]["count"]));
 								setData(result);
 							}
 						}
@@ -70,7 +70,7 @@ function SearchResult() {
 	
 	const handleChange = (event, value) => {
         setPage(value);
-        let nextpage = value > 1 ? (value - 1) * 10 + 1 : 1;
+        let nextpage = value > 1 ? (value - 1) * 5 + 1 : 1;
         if (window.sessionStorage.getItem("search") != "") {
             fetch(
                 // `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${term}&lr=ar`
@@ -83,7 +83,7 @@ function SearchResult() {
 					}else{
 						if(result['items']!=undefined){
 							if(result.items.length>0){
-							setTotallink(Math.ceil(result.queries.request[0]["totalResults"] / result.queries.request[0]["count"]));
+							// setTotallink(Math.ceil(result.queries.request[0]["totalResults"] / result.queries.request[0]["count"]));
 								setData(result);
 							}
 						}
@@ -174,7 +174,7 @@ function SearchResult() {
 			)
               }
               
-              return (<p className="text-center title font-arial mt-4">{"API Daily Limit exceeded"}</p>);
+           //   return (<p>{"No data available."}</p>);
             })()}
 			
         </div>

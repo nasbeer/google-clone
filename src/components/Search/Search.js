@@ -8,7 +8,21 @@ import SearchIcon from '@material-ui/icons/Search';
 import { Button } from '@material-ui/core';
 
 import './Search.css';
-
+window.onload = function () {
+    if (window.sessionStorage.getItem("search") != "") {
+        document.getElementById("myInput").value = window.sessionStorage.getItem("search");
+    }
+    document.getElementById("myInput").addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            // alert('ok');
+            if (document.getElementById("myInput").value != "") {
+                window.sessionStorage.setItem("search", document.getElementById("myInput").value);
+                window.location.reload();
+            }
+        }
+    });
+};
 function Search({ hideButtons = false }) {
 
     const [{ }, dispatch] = useStateValue();
@@ -21,21 +35,22 @@ function Search({ hideButtons = false }) {
         e.preventDefault();
 
         console.log('You hit the search button >>', input);
-
+		window.sessionStorage.setItem("search", document.getElementById("myInput").value);
+		
         dispatch({
             type: actionTypes.SET_SEARCH_TERM,
-            term: input,
-            numb: [1,11,21,31,41,51,61,71,81,91,101]
+            term: input
         })
        
         history.push('/search',{input});
     }
+	
 
     return (
         <form className="search">
             <div className="search__input">
                 <SearchIcon className="search__inputIcon" />
-                <input type="text"  onChange={e => setInput(e.target.value)}  placeholder="ابحث عن اي شيء..."/>
+                <input type="text" id="myInput"  placeholder="ابحث عن اي شيء..."/>
                 {/* <MicIcon /> */}
             </div>
 
